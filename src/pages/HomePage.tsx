@@ -62,20 +62,56 @@ const Stats = () => {
   );
 };
 
-const Feature = () => {
+interface FeatureType {
+  url: string;
+  title: string;
+  subtitle: string;
+}
+
+const DownloadLink = () => {
+  const fileUrl = "https://pdfobject.com/pdf/sample.pdf"; // Replace with your file link
+
+  const handleDownload = (event) => {
+    event.preventDefault(); // Prevent default anchor behavior
+
+    const link = document.createElement("a");
+    link.href = fileUrl;
+    link.download = "your-file.pdf"; // Specify the filename
+    link.target = "_blank"; // Opens in a new tab or background
+    document.body.appendChild(link); // Append to the document
+    link.click(); // Programmatically click the link
+    document.body.removeChild(link); // Remove the link after download
+  };
+
   return (
-    <div className="w-full md:w-4/12">
+    <div>
+      <a
+        href={fileUrl} // This is still needed for accessibility
+        onClick={handleDownload} // Handle the click event
+        className="btn btn-outline capitalize"
+      >
+        Get Earwise now
+      </a>
+    </div>
+  );
+};
+
+const Feature = ({ url, title, subtitle }: FeatureType) => {
+  const fallbackUrl = "https://via.placeholder.com/150"; // Placeholder URL for missing images
+
+  return (
+    <div className="w-full md:w-4/12 mt-10">
       <div className="card bg-base-100 shadow-xl">
         <figure>
           <img
             className="aspect-square object-cover"
-            src="https://i.pinimg.com/736x/6a/88/1b/6a881bcf8696c428554bbe16e5e1729d.jpg"
-            alt="Shoes"
+            src={url || fallbackUrl} // Fallback to a placeholder image if `url` is empty
+            alt={title || "Feature Image"}
           />
         </figure>
         <div className="card-body items-center">
-          <h2 className="card-title">Shoes!</h2>
-          <p>If a dog chews shoes whose shoes does he choose?</p>
+          <h2 className="card-title">{title}</h2>
+          <p>{subtitle}</p>
           {/* <div className="card-actions justify-end">
             <button className="btn btn-primary">Buy Now</button>
           </div> */}
@@ -103,6 +139,7 @@ const HomePage = () => {
               The Earwise Hearing Test app is an easy and reliable assessment of
               your hearing, delivering understandable results in just 5 minutes.
             </p>
+            <DownloadLink />
           </div>
         </div>
       </div>
@@ -131,18 +168,40 @@ const HomePage = () => {
       </div>
 
       {/* STATS */}
-      <div className="w-full">
+      {/* <div className="w-full">
         <div className="w-fit mx-auto my-20 md:my-52">
           <Stats />
         </div>
-      </div>
+      </div> */}
 
       {/* TESTIMONIAL */}
-      <div className="w-full">
-        <div className="w-10/12 md:w-7/12 mx-auto flex flex-col md:flex-row space-y-5 md:space-x-16">
-          <Feature />
-          <Feature />
-          <Feature />
+      <div className="w-full mt-10 md:mt-44">
+        <div className="w-10/12 md:w-7/12 mx-auto flex flex-col md:flex-row md:space-x-16">
+          <Feature
+            url="https://media.istockphoto.com/id/1127542345/photo/close-up-portrait-of-nice-lovely-sweet-attractive-calm-peaceful-conecnrated-focused-girl.jpg?s=612x612&w=0&k=20&c=krUDEb7Xj0qV1c0E-9GZBRU9gigojB-oFvzyS5ngXUw="
+            title={"Personalized Diagnostic Reports"}
+            subtitle={
+              "EarWise analyzes your hearing data to create a personalized diagnostic score"
+            }
+          />
+          <Feature
+            url={
+              "https://t3.ftcdn.net/jpg/05/87/43/00/360_F_587430030_zoUr6CtyPJAo58NDKXUB7XIB4ZVTNJYg.jpg"
+            }
+            title={"Actionable Recommendations"}
+            subtitle={
+              "The app provides specific recommendations to improve and protect your hearing."
+            }
+          />
+          <Feature
+            url={
+              "https://media.istockphoto.com/id/2156190297/video/music-earphones-and-black-man-in-gym-for-fitness-streaming-podcast-or-audio-radio-mature-and.jpg?s=640x640&k=20&c=r3PcM9cWsmFMFwy1ubYyYxR98oLyQmtchkDdW7V3ZwA="
+            }
+            title={"Quick and Easy Test"}
+            subtitle={
+              "The EarWise hearing test is simple and fast, taking only 5 minutes to complete.It provides clear and understandable results"
+            }
+          />
         </div>
       </div>
 
@@ -151,7 +210,47 @@ const HomePage = () => {
           <div className="text-2xl text-center md:text-4xl font-extrabold text-gray-700 ">
             Would you like to know more?
           </div>
-          <div className="text-xs md:text-base text-center">Read our FAQ or contact Customer Support</div>
+          {/* <div className="text-xs md:text-base text-center">
+            Read our FAQ or contact Customer Support
+          </div> */}
+        </div>
+      </div>
+
+      <div className="w-full">
+        <div className="w-10/12 md:w-8/12 mx-auto bg-purple-500 rounded-3xl md:rounded-full mb-16 flex flex-col items-center justify-center py-9">
+          <div className="text-2xl md:text-4xl mb-7 text-center text-white font-extrabold">
+            Start your hearing wellbeing journey with Earwise
+          </div>
+          <DownloadLink />
+        </div>
+      </div>
+
+      <div className="w-full mb-40">
+        <div className="w-8/12 mx-auto text-center space-y-8 divide-y">
+          <div className="text-sm pt-8">
+            EarWise is an innovative web app designed to address the challenges
+            faced by individuals with sensorineural hearing loss (SNHL),
+            particularly in Ontario and India. SNHL, which affects speech
+            comprehension and listening in various environments due to inner ear
+            or auditory nerve damage, often leads to social isolation and
+            psychological distress.
+          </div>
+
+          <div className="text-sm pt-8">
+            Current treatments, such as hearing aids and cochlear implants, lack
+            the ability to provide personalized adjustments for fluctuating
+            conditions, leaving many without adequate support. EarWise fills
+            this gap by offering personalized diagnostic reports based on user
+            health data, comparing hearing parameters against ideal ranges.
+          </div>
+
+          <div className="text-sm pt-8">
+            The platform empowers users to take proactive measures for their
+            hearing health, providing actionable insights and tailored
+            recommendations to enhance well-being. By offering accessible,
+            data-driven tools, EarWise aims to improve the quality of life for
+            those affected by hearing impairments.
+          </div>
         </div>
       </div>
     </div>
