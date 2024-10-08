@@ -1,6 +1,7 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 
+
 const Stats = () => {
   return (
     <div className="stats stats-vertical md:stats-horizontal shadow">
@@ -69,7 +70,7 @@ interface FeatureType {
 }
 
 const DownloadLink = () => {
-  const fileUrl = "https://job-artifacts.eascdn.net/production/b915aa5d-bd20-47bf-8d9b-79919cd6d407/3d4f76c6-295d-43e5-bae7-a5a4324904f2/application-032731f0-7136-4c00-8d9e-ccc2bf8b3919.apk?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=www-production%40exponentjs.iam.gserviceaccount.com%2F20241008%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20241008T152237Z&X-Goog-Expires=900&X-Goog-SignedHeaders=host&X-Goog-Signature=07a7c1efa2389fe8ce16a630d6105a73e30c26f108ec3340e72d3c9e276216884ef906af80d2cdff347d068e67b70063c7e1fb1b842b4c8bc477777651a1dfebcae1452556f2da920b98a41fb9bdcc45fc1f5f7c37805f3e0b3493a8ff1fc6204dd5185040aeecb284ea862567a2a81b5e0d64f19755442159ad948b81ce52cf8aff2699e3c80161cd5ff460b4c7b831cb7521faadf94d296a079fa2f843459e570584b122d508e88644295c120fffdb0dd883d0b77baded15fe89cd7955b62f0d3edb0e1a740289ae75d80c2fa37f87fba949783cf88b75509706b47550a5826b3d6d5570f41be1f55df38034b222bb0983c8a644df6447a6385ee7899cf9d6"; // Replace with your file link
+  const fileUrl = "./earwise.apk"; // Replace with your file link
 
   const handleDownload = (event) => {
     event.preventDefault(); // Prevent default anchor behavior
