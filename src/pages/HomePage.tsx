@@ -70,7 +70,7 @@ interface FeatureType {
 }
 
 const DownloadLink = () => {
-  const fileUrl = "https://mega.nz/file/l0BX3axL#NFgiggkuJX5SZp2fzO0mMJ6aklQ6g25yBvSm52UpYtc"; // Replace with your file link
+  const fileUrl = "https://github.com/athenashrikant/generic-mobile-landing/releases/download/initial-release/application-97060c3e-7dbe-4147-80cd-aa074fd9f4f3.apk"; // Replace with your file link
 
   const handleDownload = (event) => {
     event.preventDefault(); // Prevent default anchor behavior
