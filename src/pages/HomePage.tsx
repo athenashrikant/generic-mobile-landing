@@ -70,7 +70,7 @@ interface FeatureType {
 }
 
 const DownloadLink = () => {
-  const fileUrl = "./earwise.apk"; // Replace with your file link
+  const fileUrl = "https://job-artifacts.eascdn.net/production/b915aa5d-bd20-47bf-8d9b-79919cd6d407/c437e951-9e72-4131-a6f7-7a9b63095670/application-97060c3e-7dbe-4147-80cd-aa074fd9f4f3.apk?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=www-production%40exponentjs.iam.gserviceaccount.com%2F20241009%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20241009T045704Z&X-Goog-Expires=900&X-Goog-SignedHeaders=host&X-Goog-Signature=4e8cacd3621c54f9d4cc88ad9b87bf869e6ba6fb8f85c1138f785750d8ecaec2bc70b13a75ec836af5d3c7a3c0cef0fded78bfa2f6870885f8952c860789793bb91ec8cfa56d39143f9cfdd8e47d313e9e7b12fb1cdc8fe9a34b5cc582cf53058ea8fda5b518e98a73dcd32080aeae8b0968e3c64fad238eb5d8da16999aba57f4ea9c8501d46a723cf1975afff2f356ccf2d934393d63d96efccf36d2fc053d48a94e4b45513cd2a48fa86d0c17ceaded89a95d6eae01bdf0c23af4c63eb33f8e1137bbe912bdb147742eff786ecf1436a9fa774a796a0b7720e20ebc11eda4d05f2b8b79b0cd61d94938c38a468b099a3632cf669e0b7081579aa1d2f07d70"; // Replace with your file link
 
   const handleDownload = (event) => {
     event.preventDefault(); // Prevent default anchor behavior
